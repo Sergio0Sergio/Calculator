@@ -11,7 +11,7 @@ public class App
     public static void main( String[] args )
     {
         ArgsChecker argsChecker = new ArgsChecker();
-        //ArgsConverter argsConverter = new ArgsConverter();
+        Calculator calculator = new Calculator();
         String firstArgument;
         String secondArgument;
         boolean isFirstArgumentRome;
@@ -19,12 +19,14 @@ public class App
         boolean isOperatorValid;
 
         App app = new App();
-        argsChecker = new ArgsChecker();
-        //argsConverter = new ArgsConverter();
+
+
+
         argsChecker.parseArgs(args[0], args[2]);
 
 
         argsChecker.operatorChecker(args[1]);
+
 
     }
 

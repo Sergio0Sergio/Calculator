@@ -4,7 +4,9 @@ public class ArgsChecker {
 
     static String[] Rome = {"X", "IX", "VIII", "VII", "VI", "V", "IV", "III", "II", "I"};
     static String[] Arab = {"10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
-    private String arg;
+    private String arg1;
+    private String arg2;
+
     private Boolean isRome;
     private Boolean isXRome;
     private Boolean isYRome;
@@ -17,11 +19,11 @@ public class ArgsChecker {
     public ArgsChecker() {
     }
 
-    public void parseArgs(String arg1, String arg2){
+    public void parseArgs(String arg1, String arg2)throws IllegalArgumentException{
 
 
         try {
-            x = Integer.parseInt(checkValidArg(arg1));
+            x = Integer.parseInt(checkValidArg(arg1, isXRome));
 
         }catch (IllegalArgumentException e){
             System.err.println("Ошибка ввода.");
@@ -29,22 +31,28 @@ public class ArgsChecker {
         }
 
         try {
-            y = Integer.parseInt(checkValidArg(arg2));
+            y = Integer.parseInt(checkValidArg(arg2, isYRome));
 
         }catch (IllegalArgumentException e){
             System.err.println("Ошибка ввода.");
             System.exit(1);
+        }
+        if (isXRome!=isYRome){
+            throw new IllegalArgumentException("Типы аргументов не совпадают");
+
+
         }
 
 
     }
 
-    private String checkValidArg(String s) throws IllegalArgumentException{
+    private String checkValidArg(String s, boolean t) throws IllegalArgumentException{
 
         for (int i = 0; i<Rome.length; i++){
             if (Rome[i].equals(s)){
-                arg = Rome[i];
-                isRome = true;
+
+                t = true;
+                return Arab[i];
 
             }
 
@@ -52,8 +60,9 @@ public class ArgsChecker {
 
         for (int i = 0; i<Arab.length; i++){
             if (Arab[i].equals(s)){
-                arg = Arab[i];
-                isRome = false;
+
+                t = false;
+                return Arab[i];
 
             }
 
@@ -84,9 +93,7 @@ public class ArgsChecker {
         throw new IllegalArgumentException();
     }
 
-    public String getArg() {
-        return arg;
-    }
+
 
     public String getOperator() {
         return operator;
