@@ -29,6 +29,7 @@ public class App
         
         argsChecker.parseArgs(arg1, arg2);
         argsChecker.operatorChecker(operator);
+        calculator.printResult(argsChecker.getX(), argsChecker.getY(), argsChecker.getOperator(), argsChecker.getIsXRome())
         }
 
     }
