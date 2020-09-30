@@ -40,8 +40,18 @@ public class Calculator {
     }
 
     private String convert(int x){
-
+        
+        if(x == 0){
+            return "Nulla";
+        }
+        
         String s = "";
+        
+        if(x < 0){
+         s += "minus ";
+         x = Math.abs(x);   
+        }
+        
         while (x >= 1000) {
             s += "M";
             x -= 1000;        }
