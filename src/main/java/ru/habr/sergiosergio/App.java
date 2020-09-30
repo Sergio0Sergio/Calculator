@@ -13,24 +13,28 @@ public class App
         Scanner console;
         ArgsChecker argsChecker;
         Calculator calculator;
-        String arg1 = "";
-        String arg2 = "";
-        String operatop = "";
+
         
-        App app = new App();
-        console = new Scanner(System.in);
+        //App app = new App();
+        String arg1;
+        String arg2;
+        String arg3;
         argsChecker = new ArgsChecker();
         calculator = new Calculator();
+        console = new Scanner(System.in);
+
+
+
         
-        while(true){
+        //while(true){
         arg1 = console.next();
-        operator = console.next();
+        arg3 = console.next();
         arg2 = console.next();
         
         argsChecker.parseArgs(arg1, arg2);
-        argsChecker.operatorChecker(operator);
-        calculator.printResult(argsChecker.getX(), argsChecker.getY(), argsChecker.getOperator(), argsChecker.getIsXRome())
-        }
+        argsChecker.operatorChecker(arg3);
+        calculator.printResult(argsChecker.getX(), argsChecker.getY(), argsChecker.getOperator(), argsChecker.getIsXRome());
+        //}
 
     }
 
