@@ -7,7 +7,6 @@ public class ArgsChecker {
     private String arg1;
     private String arg2;
 
-    private Boolean isRome;
     private Boolean isXRome;
     private Boolean isYRome;
 
@@ -97,5 +96,17 @@ public class ArgsChecker {
 
     public String getOperator() {
         return operator;
+    }
+    
+    public int getX() {
+        return x;
+    }
+    
+    public int getY() {
+        return y;
+    }
+    
+    public boolean getIsXRome() {
+        return isXRome;
     }
 }
