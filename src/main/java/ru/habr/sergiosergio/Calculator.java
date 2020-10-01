@@ -2,7 +2,7 @@ package ru.habr.sergiosergio;
 
 public class Calculator {
 
-    public void printResult(int x, int y, String operator, boolean type){
+   public void printResult(int x, int y, String operator, boolean type){
         if (type){
             System.out.println(convert(calculate(x, y, operator)));
         }
@@ -12,31 +12,20 @@ public class Calculator {
     }
     private int calculate(int x, int y, String operator){
 
-        switch (operator){
-            case "1": operator.equals("+");
-
+        if (operator.equals("+"))
                 return x+y;
 
+        if (operator.equals("-"))
+            return x-y;
 
+        if (operator.equals("*"))
+            return x*y;
 
-            case "2": operator.equals("-");
-                return x-y;
+        if (operator.equals("/"))
+            return x/y;
 
+        return 999;
 
-
-            case "3": operator.equals("*");
-                return x*y;
-
-
-
-            case "4": operator.equals("/");
-                return x/y;
-
-
-            default:
-                return 999;
-
-        }
     }
 
     private String convert(int x){
@@ -51,22 +40,7 @@ public class Calculator {
          s += "minus ";
          x = Math.abs(x);   
         }
-        
-        while (x >= 1000) {
-            s += "M";
-            x -= 1000;        }
-        while (x >= 900) {
-            s += "CM";
-            x -= 900;
-        }
-        while (x >= 500) {
-            s += "D";
-            x -= 500;
-        }
-        while (x >= 400) {
-            s += "CD";
-            x -= 400;
-        }
+
         while (x >= 100) {
             s += "C";
             x -= 100;
@@ -105,5 +79,4 @@ public class Calculator {
         }
         return s;
     }
-
 }
