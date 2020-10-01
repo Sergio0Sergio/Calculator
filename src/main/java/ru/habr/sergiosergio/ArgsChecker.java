@@ -16,12 +16,12 @@ public class ArgsChecker {
     public ArgsChecker() {
     }
 
-   public void parseArgs(String arg1, String arg2)throws IllegalArgumentException{
+    public void parseArgs(String arg1, String arg2) throws IllegalArgumentException {
 
         try {
             x = Integer.parseInt(checkValidArg(arg1, 0));
 
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.err.println("Ошибка ввода.");
             System.exit(1);
         }
@@ -29,11 +29,11 @@ public class ArgsChecker {
         try {
             y = Integer.parseInt(checkValidArg(arg2, 1));
 
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.err.println("Ошибка ввода.");
             System.exit(1);
         }
-        if (isXRome!=isYRome){
+        if (isXRome != isYRome) {
             throw new IllegalArgumentException("Типы аргументов не совпадают");
 
 
@@ -42,14 +42,14 @@ public class ArgsChecker {
 
     }
 
-    private String checkValidArg(String s, int a) throws IllegalArgumentException{
+    private String checkValidArg(String s, int a) throws IllegalArgumentException {
 
 
-        for (int i = 0; i<Rome.length; i++){
-            if (Rome[i].equals(s)){
-                if (a==0) {
+        for (int i = 0; i < Rome.length; i++) {
+            if (Rome[i].equals(s)) {
+                if (a == 0) {
                     isXRome = true;
-                }else {
+                } else {
                     isYRome = true;
                 }
                 return Arab[i];
@@ -58,11 +58,11 @@ public class ArgsChecker {
 
         }
 
-        for (int i = 0; i<Arab.length; i++){
-            if (Arab[i].equals(s)){
-                if (a==0){
+        for (int i = 0; i < Arab.length; i++) {
+            if (Arab[i].equals(s)) {
+                if (a == 0) {
                     isXRome = false;
-                }else {
+                } else {
                     isYRome = false;
                 }
                 return Arab[i];
@@ -74,31 +74,30 @@ public class ArgsChecker {
 
     }
 
-    public void operatorChecker(String s) throws IllegalArgumentException{
+    public void operatorChecker(String s) throws IllegalArgumentException {
 
-        if (s.equals("+")||s.equals("-")||s.equals("*")||s.equals("/")) {
+        if (s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/")) {
             operator = s;
 
-        }else{
+        } else {
             throw new IllegalArgumentException();
         }
 
     }
 
 
-
     public String getOperator() {
         return operator;
     }
-    
+
     public int getX() {
         return x;
     }
-    
+
     public int getY() {
         return y;
     }
-    
+
     public boolean getIsXRome() {
         return isXRome;
     }

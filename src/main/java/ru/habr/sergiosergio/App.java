@@ -1,17 +1,15 @@
 package ru.habr.sergiosergio;
+
 import java.util.Scanner;
 
-public class App 
-{
+public class App {
 
 
-    public static void main( String[] args )
-    {
+    public static void main(String[] args) {
         Scanner console;
         ArgsChecker argsChecker;
         Calculator calculator;
 
-        
 
         String arg1;
         String arg2;
@@ -21,9 +19,7 @@ public class App
         console = new Scanner(System.in);
 
 
-
-        
-        while(true) {
+        while (true) {
             arg1 = console.next();
             arg3 = console.next();
             arg2 = console.next();
@@ -43,7 +39,6 @@ public class App
         }
 
     }
-
 
 
 }

@@ -2,43 +2,43 @@ package ru.habr.sergiosergio;
 
 public class Calculator {
 
-   public void printResult(int x, int y, String operator, boolean type){
-        if (type){
+    public void printResult(int x, int y, String operator, boolean type) {
+        if (type) {
             System.out.println(convert(calculate(x, y, operator)));
-        }
-        else {
+        } else {
             System.out.println(calculate(x, y, operator));
         }
     }
-    private int calculate(int x, int y, String operator){
+
+    private int calculate(int x, int y, String operator) {
 
         if (operator.equals("+"))
-                return x+y;
+            return x + y;
 
         if (operator.equals("-"))
-            return x-y;
+            return x - y;
 
         if (operator.equals("*"))
-            return x*y;
+            return x * y;
 
         if (operator.equals("/"))
-            return x/y;
+            return x / y;
 
         return 999;
 
     }
 
-    private String convert(int x){
-        
-        if(x == 0){
+    private String convert(int x) {
+
+        if (x == 0) {
             return "Nulla";
         }
-        
+
         String s = "";
-        
-        if(x < 0){
-         s += "minus ";
-         x = Math.abs(x);   
+
+        if (x < 0) {
+            s += "minus ";
+            x = Math.abs(x);
         }
 
         while (x >= 100) {
