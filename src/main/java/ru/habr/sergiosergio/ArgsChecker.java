@@ -7,9 +7,7 @@ public class ArgsChecker {
 
     private Boolean isXRome;
     private Boolean isYRome;
-
     private String operator;
-
     int x;
     int y;
 
@@ -18,32 +16,16 @@ public class ArgsChecker {
 
     public void parseArgs(String arg1, String arg2) throws IllegalArgumentException {
 
-        try {
-            x = Integer.parseInt(checkValidArg(arg1, 0));
+        x = Integer.parseInt(checkValidArg(arg1, 0));
 
-        } catch (IllegalArgumentException e) {
-            System.err.println("Ошибка ввода.");
-            System.exit(1);
-        }
+        y = Integer.parseInt(checkValidArg(arg2, 1));
 
-        try {
-            y = Integer.parseInt(checkValidArg(arg2, 1));
-
-        } catch (IllegalArgumentException e) {
-            System.err.println("Ошибка ввода.");
-            System.exit(1);
-        }
         if (isXRome != isYRome) {
             throw new IllegalArgumentException("Типы аргументов не совпадают");
-
-
         }
-
-
     }
 
     private String checkValidArg(String s, int a) throws IllegalArgumentException {
-
 
         for (int i = 0; i < Rome.length; i++) {
             if (Rome[i].equals(s)) {
@@ -53,9 +35,7 @@ public class ArgsChecker {
                     isYRome = true;
                 }
                 return Arab[i];
-
             }
-
         }
 
         for (int i = 0; i < Arab.length; i++) {
@@ -66,12 +46,9 @@ public class ArgsChecker {
                     isYRome = false;
                 }
                 return Arab[i];
-
             }
-
         }
         throw new IllegalArgumentException("Введен некорректный аргумент.");
-
     }
 
     public void operatorChecker(String s) throws IllegalArgumentException {
@@ -80,11 +57,9 @@ public class ArgsChecker {
             operator = s;
 
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Неправильный математический оператор");
         }
-
     }
-
 
     public String getOperator() {
         return operator;

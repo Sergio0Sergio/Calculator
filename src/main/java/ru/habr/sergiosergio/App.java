@@ -4,13 +4,10 @@ import java.util.Scanner;
 
 public class App {
 
-
     public static void main(String[] args) {
         Scanner console;
         ArgsChecker argsChecker;
         Calculator calculator;
-
-
         String arg1;
         String arg2;
         String arg3;
@@ -28,11 +25,13 @@ public class App {
                 argsChecker.parseArgs(arg1, arg2);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
+                System.exit(1);
             }
             try {
                 argsChecker.operatorChecker(arg3);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
+                System.exit(1);
             }
 
             calculator.printResult(argsChecker.getX(), argsChecker.getY(), argsChecker.getOperator(), argsChecker.getIsXRome());

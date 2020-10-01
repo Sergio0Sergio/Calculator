@@ -25,7 +25,6 @@ public class Calculator {
             return x / y;
 
         return 999;
-
     }
 
     private String convert(int x) {
