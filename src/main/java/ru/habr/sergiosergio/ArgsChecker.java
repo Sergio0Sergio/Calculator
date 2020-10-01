@@ -4,8 +4,6 @@ public class ArgsChecker {
 
     static String[] Rome = {"X", "IX", "VIII", "VII", "VI", "V", "IV", "III", "II", "I"};
     static String[] Arab = {"10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
-    private String arg1;
-    private String arg2;
 
     private Boolean isXRome;
     private Boolean isYRome;
@@ -19,8 +17,6 @@ public class ArgsChecker {
     }
 
    public void parseArgs(String arg1, String arg2)throws IllegalArgumentException{
-        this.arg1 = arg1;
-        this.arg2 = arg2;
 
         try {
             x = Integer.parseInt(checkValidArg(arg1, 0));
