@@ -13,20 +13,15 @@ public class App
         Scanner console;
         ArgsChecker argsChecker;
         Calculator calculator;
-
         
-        //App app = new App();
         String arg1;
         String arg2;
         String arg3;
         argsChecker = new ArgsChecker();
         calculator = new Calculator();
         console = new Scanner(System.in);
-
-
-
         
-        //while(true){
+        while(true){
         arg1 = console.next();
         arg3 = console.next();
         arg2 = console.next();
@@ -34,7 +29,7 @@ public class App
         argsChecker.parseArgs(arg1, arg2);
         argsChecker.operatorChecker(arg3);
         calculator.printResult(argsChecker.getX(), argsChecker.getY(), argsChecker.getOperator(), argsChecker.getIsXRome());
-        //}
+        }
 
     }
 
