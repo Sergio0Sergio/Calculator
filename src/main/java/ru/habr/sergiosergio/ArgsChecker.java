@@ -18,11 +18,12 @@ public class ArgsChecker {
     public ArgsChecker() {
     }
 
-    public void parseArgs(String arg1, String arg2)throws IllegalArgumentException{
-
+   public void parseArgs(String arg1, String arg2)throws IllegalArgumentException{
+        this.arg1 = arg1;
+        this.arg2 = arg2;
 
         try {
-            x = Integer.parseInt(checkValidArg(arg1, isXRome));
+            x = Integer.parseInt(checkValidArg(arg1, 0));
 
         }catch (IllegalArgumentException e){
             System.err.println("Ошибка ввода.");
@@ -30,7 +31,7 @@ public class ArgsChecker {
         }
 
         try {
-            y = Integer.parseInt(checkValidArg(arg2, isYRome));
+            y = Integer.parseInt(checkValidArg(arg2, 1));
 
         }catch (IllegalArgumentException e){
             System.err.println("Ошибка ввода.");
@@ -45,12 +46,16 @@ public class ArgsChecker {
 
     }
 
-    private String checkValidArg(String s, boolean t) throws IllegalArgumentException{
+    private String checkValidArg(String s, int a) throws IllegalArgumentException{
+
 
         for (int i = 0; i<Rome.length; i++){
             if (Rome[i].equals(s)){
-
-                t = true;
+                if (a==0) {
+                    isXRome = true;
+                }else {
+                    isYRome = true;
+                }
                 return Arab[i];
 
             }
@@ -59,8 +64,11 @@ public class ArgsChecker {
 
         for (int i = 0; i<Arab.length; i++){
             if (Arab[i].equals(s)){
-
-                t = false;
+                if (a==0){
+                    isXRome = false;
+                }else {
+                    isYRome = false;
+                }
                 return Arab[i];
 
             }
@@ -70,26 +78,15 @@ public class ArgsChecker {
 
     }
 
-    public boolean operatorChecker(String s) throws IllegalArgumentException{
+    public void operatorChecker(String s) throws IllegalArgumentException{
 
-        switch (s){
-            case "1": s.equals("+");
-                return true;
+        if (s.equals("+")||s.equals("-")||s.equals("*")||s.equals("/")) {
+            operator = s;
 
-
-            case "2": s.equals("-");
-                return true;
-
-
-            case "3": s.equals("*");
-                return true;
-
-
-            case "4": s.equals("/");
-                return true;
-
+        }else{
+            throw new IllegalArgumentException();
         }
-        throw new IllegalArgumentException();
+
     }
 
 
